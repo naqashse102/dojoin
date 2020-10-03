@@ -1,0 +1,14 @@
+.home-container{
+    padding: 40px;
+    .loader-wrapper{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.logout-container{
+    text-align: center;
+    margin: 50px 0px;
+}

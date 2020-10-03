@@ -1,0 +1,78 @@
+@import '../../../styles/functions';
+
+.login-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    mat-card{
+        padding: calculateRem(50px);
+        width: 30%;
+        h1{
+            text-align: center;
+            margin-bottom: calculateRem(80px);
+            font-size: calculateRem(32px);
+        }
+
+        mat-form-field{
+            width: 100%;
+            ::ng-deep{
+                .mat-form-field-flex{
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .make-row{
+            display: flex;
+            align-items: center;
+            .country-code{
+                width: calculateRem(80px);
+                margin-right: calculateRem(20px);
+            }
+        }
+
+       
+        .sep-center-items > *{
+            margin: calculateRem(0px) calculateRem(10px);
+        }
+
+        .stretched-btn {
+            height: calculateRem(50px);
+        }
+
+        .mb-20{
+            margin-bottom: calculateRem(20px);
+        }
+    }
+}
+
+
+.app-store-link{
+    height: calculateRem(45px);
+    width: calculateRem(150px);
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px){
+    .login-form-container{
+        mat-card{
+            width: 75%;
+        }
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 767px){
+    .login-form-container{
+        mat-card{
+            width: 65%;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .login-form-container{
+        mat-card{
+            width: 50%;
+        }
+    }
+}

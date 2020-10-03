@@ -1,0 +1,85 @@
+<div class="login-form-container">
+
+    <mat-card>
+        <h1>Welcome to DoJoin</h1>
+        <form [formGroup]="loginForm" #form="ngForm" ngxScrollToFirstInvalid (ngSubmit)="loginHandler()"
+            autocomplete="on">
+            <div class="make-row">
+                <mat-form-field class="country-code" appearance="fill">
+                    <mat-select class="form-control" formControlName="countryCode" name="countryCode">
+                        <mat-option *ngFor="let country of countries" [value]="country.id">
+                            {{country.phoneCode}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="loginForm.controls.countryCode.errors && form.submitted">
+                        <ng-template [ngIf]="loginForm.controls.countryCode.errors.required">
+                            Required
+                        </ng-template>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Phone Number *</mat-label>
+                    <input matInput digit-only formControlName="phoneNumber" name="phoneNumber">
+                    <mat-icon matSuffix>call</mat-icon>
+                    <mat-error *ngIf="loginForm.controls.phoneNumber.errors && form.submitted">
+                        <ng-template [ngIf]="loginForm.controls.phoneNumber.errors.required">
+                            Please fill in the mendatory fields
+                        </ng-template>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="make-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Password *</mat-label>
+                    <input matInput formControlName="password" name="password"
+                        [type]="hidePassword ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" type="button">
+                        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.controls.password.errors && form.submitted">
+                        <ng-template [ngIf]="loginForm.controls.password.errors.required">
+                            Password is required
+                        </ng-template>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div class="make-row justify-space-between mb-20">
+                <mat-checkbox formControlName="rememberMe" name="rememberMe">Remember Me</mat-checkbox>
+                <a mat-button class="p-0" color="primary" href="javascript:void(0)">Forgot Password?</a>
+            </div>
+
+            <div class="make-row mb-20">
+                <button mat-stroked-button class="w-100 stretched-btn" color="primary">Signin with Email of Account
+                    ID</button>
+            </div>
+
+            <div class="make-row mb-20">
+                <button mat-raised-button class="w-100 stretched-btn" color="warn" type="submit"
+                    [disabled]="form.submitted && !loginForm.valid">Signin</button>
+            </div>
+
+            <hr class="hr-text mb-20" data-content="OR">
+
+            <div class="make-row justify-center sep-center-items mb-20">
+                <a mat-button class="p-0" color="" href="javascript:void(0)">Don't have an account?</a>
+                <a mat-button class="p-0" color="primary" href="javascript:void(0)">Sign Up</a>
+            </div>
+
+            <div class="make-row justify-center sep-center-items">
+                <img class="app-store-link"
+                    src="https://lh3.googleusercontent.com/cjsqrWQKJQp9RFO7-hJ9AfpKzbUb_Y84vXfjlP0iRHBvladwAfXih984olktDhPnFqyZ0nu9A5jvFwOEQPXzv7hr3ce3QVsLN8kQ2Ao=s0" />
+                <img class="app-store-link"
+                    src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png"
+                    alt="">
+            </div>
+
+        </form>
+    </mat-card>
+
+
+
+</div>
